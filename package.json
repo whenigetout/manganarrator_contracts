@@ -1,8 +1,10 @@
 {
     "name": "@manganarrator/contracts",
     "version": "0.0.1",
-    "private": false,
     "type": "module",
-    "main": "ts/mn_contracts/src/index.ts",
-    "types": "ts/mn_contracts/src/index.ts"
+    "main": "ts/mn_contracts/dist/index.js",
+    "types": "ts/mn_contracts/dist/index.d.ts",
+    "devDependencies": {
+        "typescript": "^5.9.3"
+    }
 }
