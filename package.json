@@ -1,0 +1,7 @@
+{
+    "name": "manganarrator-contracts",
+    "private": true,
+    "workspaces": [
+        "ts/*"
+    ]
+}
