@@ -1,7 +1,8 @@
 {
-    "name": "manganarrator-contracts",
-    "private": true,
-    "workspaces": [
-        "ts/*"
-    ]
+    "name": "@manganarrator/contracts",
+    "version": "0.0.1",
+    "private": false,
+    "type": "module",
+    "main": "ts/mn_contracts/src/index.ts",
+    "types": "ts/mn_contracts/src/index.ts"
 }
