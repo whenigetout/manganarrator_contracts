@@ -1,4 +1,4 @@
-import { MediaRef } from "./ocr";
+import { MediaRef } from "./ocr.js";
 
 /* ---------------- emotion ---------------- */
 

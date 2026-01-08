@@ -1,4 +1,4 @@
-import { MediaRef } from "./ocr";
+import { MediaRef } from "./ocr.js";
 export interface EmotionParams {
     cfg: number;
     exaggeration: number;

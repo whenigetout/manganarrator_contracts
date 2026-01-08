@@ -1,3 +1,3 @@
-export * from "./ocr";
-export * from "./tts";
-export * from "./pcc_backend";
+export * from "./ocr.js";
+export * from "./tts.js";
+export * from "./pcc_backend.js";
