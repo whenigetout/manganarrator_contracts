@@ -29,18 +29,18 @@ export interface DialogueLine {
     gender: string
     emotion: string
     text: string
-    original_bbox?: OriginalImageBBox
+    original_bbox: OriginalImageBBox
 }
 
 export interface OCRImage {
     image_id: string
-    image_info?: ImageInfo
-    dlg_lines?: DialogueLine[]
+    image_info: ImageInfo
+    dlg_lines: DialogueLine[]
 }
 
 export interface OCRRun {
     run_id: string
     error?: string
     ocr_json_file: MediaRef
-    images?: OCRImage[]
+    images: OCRImage[]
 }
