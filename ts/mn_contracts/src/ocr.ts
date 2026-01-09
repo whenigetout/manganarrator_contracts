@@ -10,7 +10,6 @@ export interface MediaRef {
 
 export interface ImageInfo {
     image_ref: MediaRef
-    image_text: any
     image_width: number
     image_height: number
 }
@@ -35,7 +34,7 @@ export interface DialogueLine {
 export interface OCRImage {
     image_id: string
     image_info: ImageInfo
-    dlg_lines: DialogueLine[]
+    dialogue_lines: DialogueLine[]
 }
 
 export interface OCRRun {
