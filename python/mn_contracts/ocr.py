@@ -60,6 +60,14 @@ class OriginalImageBBox(BaseModel):
     x2: float
     y2: float
 
+    def scaled(self, scale: float) -> "OriginalImageBBox":
+        return OriginalImageBBox(
+            x1=int(self.x1 * scale),
+            y1=int(self.y1 * scale),
+            x2=int(self.x2 * scale),
+            y2=int(self.y2 * scale),
+        )
+
 class DialogueLine(BaseModel):
     id: int
     image_id: str
