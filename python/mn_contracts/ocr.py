@@ -67,16 +67,16 @@ class DialogueLine(BaseModel):
     gender: str
     emotion: str
     text: str
-    original_bbox: Optional[OriginalImageBBox] = None
+    original_bbox: OriginalImageBBox
 
 class OCRImage(BaseModel):
     image_id: str
-    image_info: Optional[ImageInfo] = None
-    dialogue_lines: Optional[list[DialogueLine]] = None
+    image_info: ImageInfo
+    dialogue_lines: list[DialogueLine]
 
 class OCRRun(BaseModel):
     # path to THE json file (with bboxes)
     run_id: str
     error: Optional[str] = None
     ocr_json_file: MediaRef
-    images: Optional[List[OCRImage]] = None
+    images: List[OCRImage]
