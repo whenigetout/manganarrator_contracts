@@ -24,10 +24,13 @@ export interface DialogueLine {
     gender: string;
     emotion: string;
     text: string;
+    status: "ok" | "failed";
+    error: string | null;
     original_bbox: OriginalImageBBox;
 }
 export interface OCRImage {
     image_id: string;
+    has_text: boolean;
     image_info: ImageInfo;
     dialogue_lines: DialogueLine[];
 }

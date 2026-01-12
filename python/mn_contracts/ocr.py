@@ -75,10 +75,13 @@ class DialogueLine(BaseModel):
     gender: str
     emotion: str
     text: str
+    status: Literal["ok", "failed"]
+    error: Optional[str] = None
     original_bbox: OriginalImageBBox
 
 class OCRImage(BaseModel):
     image_id: str
+    has_text: bool
     image_info: ImageInfo
     dialogue_lines: list[DialogueLine]
 
