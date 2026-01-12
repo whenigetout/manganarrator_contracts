@@ -26,7 +26,7 @@ export interface DialogueLine {
     text: string;
     status: "ok" | "failed";
     error: string | null;
-    original_bbox: OriginalImageBBox;
+    original_bbox: OriginalImageBBox | null;
 }
 export interface OCRImage {
     image_id: string;

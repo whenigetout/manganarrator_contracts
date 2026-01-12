@@ -77,7 +77,7 @@ class DialogueLine(BaseModel):
     text: str
     status: Literal["ok", "failed"]
     error: Optional[str] = None
-    original_bbox: OriginalImageBBox
+    original_bbox: Optional[OriginalImageBBox] = None
 
 class OCRImage(BaseModel):
     image_id: str
