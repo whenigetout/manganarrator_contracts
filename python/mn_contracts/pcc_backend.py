@@ -2,6 +2,7 @@ from pydantic import BaseModel, ValidationError
 from typing import List, Optional
 import mn_contracts.ocr as d
 from pathlib import Path
+import mn_contracts.common as c
 
 class MangaDirViewResponse(BaseModel):
     folders: List[d.MediaRef]
@@ -11,24 +12,6 @@ class LatestTTSResponse(BaseModel):
     status: str                 # "success" | "error"
     audio_path: Optional[str]   # present on success
     error: Optional[str]        # present on error
-
-def is_path_inside(path: Path, base: Path) -> bool:
-    try:
-        path.resolve().relative_to(base.resolve())
-        return True
-    except ValueError:
-        return False
-
-def build_media_Ref(namespace: str, path: str) -> d.MediaRef:
-    try:
-        ns: d.MediaNamespace = d.MediaNamespace.INPUTS if namespace == "inputs" else d.MediaNamespace.OUTPUTS
-        media_ref = d.MediaRef(
-            namespace=ns,
-            path=path,
-        )
-        return media_ref
-    except ValidationError as e:
-        raise ValueError("Invalid path passed")
 
 def latest_tts_audio_ref(
         run_id: str,
@@ -65,7 +48,7 @@ def latest_tts_audio_ref(
         )
 
         # should be inside outputs folder
-        if not is_path_inside(target_path, base_dir):
+        if not c.is_path_inside(target_path, base_dir):
             raise ValueError("Invalid path param passed.")
 
         if not target_path.exists():

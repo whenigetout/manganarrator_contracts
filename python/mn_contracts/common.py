@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from pathlib import Path
 from typing import Union
 import json
+import mn_contracts.ocr as o
 
 def save_model_json(
     model: BaseModel,
@@ -33,3 +34,21 @@ def save_model_json(
 
 def ensure_dir(path: Path):
     path.mkdir(parents=True, exist_ok=True)
+
+def is_path_inside(path: Path, base: Path) -> bool:
+    try:
+        path.resolve().relative_to(base.resolve())
+        return True
+    except ValueError:
+        return False
+
+def build_media_Ref(namespace: o.MediaNamespace, path: str | Path) -> o.MediaRef:
+    try:
+        path = Path(path)
+        media_ref = o.MediaRef(
+            namespace=namespace,
+            path=str(path.as_posix()),
+        )
+        return media_ref
+    except Exception as e:
+        raise ValueError("Invalid path passed") from e
