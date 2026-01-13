@@ -43,11 +43,11 @@ class MediaRef(BaseModel):
     def posix_path_from_namespace(self) -> str:
         return str(Path(self.path).as_posix)
     
-    def namespace_path(self, media_root: Path) -> Path:
-        return media_root / self.namespace.value 
+    def namespace_path(self, media_root: Path | str) -> Path:
+        return Path(media_root) / self.namespace.value 
     
-    def resolve(self, media_root: Path) -> Path:
-        return media_root / self.namespace.value / self.path
+    def resolve(self, media_root: Path | str) -> Path:
+        return Path(media_root) / self.namespace.value / self.path
 
 class ImageInfo(BaseModel):
     image_ref: MediaRef
