@@ -80,7 +80,7 @@ class DialogueLine(BaseModel):
     original_bbox: Optional[OriginalImageBBox] = None
 
 class OCRImage(BaseModel):
-    image_id: str
+    image_id: int
     has_text: bool
     image_info: ImageInfo
     dialogue_lines: list[DialogueLine]
