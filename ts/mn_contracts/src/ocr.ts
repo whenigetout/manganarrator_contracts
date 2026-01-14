@@ -34,7 +34,7 @@ export interface DialogueLine {
 }
 
 export interface OCRImage {
-    image_id: string
+    image_id: number
     has_text: boolean
     image_info: ImageInfo
     dialogue_lines: DialogueLine[]
