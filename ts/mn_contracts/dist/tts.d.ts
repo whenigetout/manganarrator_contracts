@@ -1,33 +1,16 @@
 import { MediaRef } from "./ocr.js";
-export interface EmotionParams {
-    cfg: number;
-    exaggeration: number;
-}
-export interface Emotion {
-    name: string;
-    params: EmotionParams;
-}
-export declare const EMOTIONS: Record<string, Emotion>;
-export declare const DEFAULT_EMOTION = "neutral";
+import { EmotionParams } from "./tts_cfg.js";
 export type GenderValue = "female" | "male" | "neutral";
-export interface Gender {
-    value: GenderValue;
+export declare enum Gender {
+    FEMALE = "female",
+    MALE = "male",
+    NEUTRAL = "neutral"
 }
-export declare const GENDERS: Record<GenderValue, Gender>;
-export declare const DEFAULT_GENDER: GenderValue;
-export interface Speaker {
-    name: string;
-    wav_file: string;
-    gender: Gender;
-}
-export declare const SPEAKER_GROUPS: Record<string, Record<string, Speaker>>;
-export declare const DEFAULT_GROUP = "unknown";
-export declare const DEFAULT_SPEAKER = "default";
 export interface TTSInput {
     text: string;
     gender: Gender;
-    emotion: Emotion;
-    speaker: Speaker;
+    emotion: string;
+    speaker: string;
     image_ref: MediaRef;
     customSettings?: EmotionParams;
     run_id?: string;
@@ -39,5 +22,5 @@ export interface TTSOutput {
     audio_ref: MediaRef;
 }
 export interface EmotionOptionsOutput {
-    emotionOptions: Emotion[];
+    emotionOptions: string[];
 }
