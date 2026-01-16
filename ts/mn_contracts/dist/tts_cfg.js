@@ -522,15 +522,18 @@ export const TTS_CFG = {
     }
 };
 export function resolveTTS(gender, speaker, emotion) {
-    const genderCfg = TTS_CFG[gender];
-    const speakerCfg = genderCfg[speaker] ?? Object.values(genderCfg)[0];
+    const genderCfg = TTS_CFG[gender] ?? TTS_CFG["neutral"];
+    if (!genderCfg) {
+        throw new Error(`No 'neutral' gender defined in TTS_CFG`);
+    }
+    const speakerCfg = genderCfg[speaker] ?? genderCfg["neutral"];
     if (!speakerCfg) {
-        throw new Error(`No speakers defined for gender ${gender}`);
+        throw new Error(`No 'neutral' speaker defined`);
     }
     const emotions = speakerCfg.emotions;
-    const params = emotions[emotion] ?? emotions['neutral'];
+    const params = emotions[emotion] ?? emotions["neutral"];
     if (!params) {
-        throw new Error(`No emotion '${emotion}' or 'neutral' defined`);
+        throw new Error(`No 'neutral' emotion defined`);
     }
     return {
         voice: speakerCfg.voice,

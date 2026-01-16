@@ -6,16 +6,11 @@ import mn_contracts.ocr as o
 from enum import Enum
 from mn_contracts.tts_cfg import EmotionParams
 
-class Gender(str, Enum):
-    FEMALE = "female",
-    MALE = "male",
-    NEUTRAL = "neutral"
-
 class TTSInput(BaseModel):
     model_config = ConfigDict(frozen=True)
 
     text: str
-    gender: Gender
+    gender: str
     emotion: str
     speaker: str
     image_ref: o.MediaRef

@@ -1,6 +1,8 @@
 // AUTO-GENERATED FILE — DO NOT EDIT
 // Source: cfg/tts_emotions.yaml
 
+/* ---------------- gender ---------------- */
+
 export type EmotionParams = {
   exaggeration?: number
   cfg?: number
@@ -543,19 +545,26 @@ export function resolveTTS(
   speaker: string,
   emotion: string
 ): { voice: string; params: EmotionParams } {
-  const genderCfg = TTS_CFG[gender]
-  const speakerCfg =
-    (genderCfg as any)[speaker] ?? Object.values(genderCfg)[0]
 
-  if (!speakerCfg) {
-    throw new Error(`No speakers defined for gender ${gender}`)
+  const genderCfg =
+    TTS_CFG[gender] ?? TTS_CFG["neutral"]
+
+  if (!genderCfg) {
+    throw new Error(`No 'neutral' gender defined in TTS_CFG`)
   }
 
-  const emotions = speakerCfg.emotions
-  const params = emotions[emotion] ?? emotions['neutral']
+  const speakerCfg =
+    (genderCfg as any)[speaker] ?? (genderCfg as any)["neutral"]
+
+  if (!speakerCfg) {
+    throw new Error(`No 'neutral' speaker defined`)
+  }
+
+  const emotions = speakerCfg.emotions as Record<string, EmotionParams>
+  const params = emotions[emotion] ?? emotions["neutral"]
 
   if (!params) {
-    throw new Error(`No emotion '${emotion}' or 'neutral' defined`)
+    throw new Error(`No 'neutral' emotion defined`)
   }
 
   return {
@@ -563,3 +572,4 @@ export function resolveTTS(
     params,
   }
 }
+

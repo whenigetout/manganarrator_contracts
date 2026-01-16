@@ -1,21 +1,13 @@
 import { MediaRef } from "./ocr.js";
 import { EmotionParams } from "./tts_cfg.js";
 
-/* ---------------- gender ---------------- */
-
-export type GenderValue = "female" | "male" | "neutral";
-
-export enum Gender {
-    FEMALE = "female",
-    MALE = "male",
-    NEUTRAL = "neutral"
-}
+import { GenderKey } from "./tts_cfg.js";
 
 /* ---------------- tts io ---------------- */
 
 export interface TTSInput {
     text: string;
-    gender: Gender;
+    gender: GenderKey;
     emotion: string;
     speaker: string;
     image_ref: MediaRef;

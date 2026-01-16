@@ -3,7 +3,6 @@
 
 from typing import Dict, TypedDict
 
-
 class EmotionParams(TypedDict, total=False):
     exaggeration: float
     cfg: float
@@ -13,7 +12,6 @@ class EmotionParams(TypedDict, total=False):
 class SpeakerCfg(TypedDict):
     voice: str
     emotions: Dict[str, EmotionParams]
-
 
 TTSCFG: Dict[str, Dict[str, SpeakerCfg]] = {
   "neutral": {
@@ -537,30 +535,26 @@ TTSCFG: Dict[str, Dict[str, SpeakerCfg]] = {
   }
 }
 
-
 def resolve_tts(
     gender: str,
     speaker: str,
     emotion: str,
 ) -> tuple[str, EmotionParams]:
-    """
-    Returns (voice_filename, emotion_params)
-    Safe fallback if speaker/emotion is unknown.
-    """
 
-    gender_cfg = TTSCFG.get(gender) or {}
-    speaker_cfg = gender_cfg.get(speaker)
+    gender_cfg = TTSCFG.get(gender) or TTSCFG.get("neutral")
 
-    if speaker_cfg is None:
-        speaker_cfg = next(iter(gender_cfg.values()), None)
+    if not gender_cfg:
+        raise KeyError("No 'neutral' gender defined in TTSCFG")
 
-    if speaker_cfg is None:
-        raise KeyError(f"No speakers defined for gender '{gender}'")
+    speaker_cfg = gender_cfg.get(speaker) or gender_cfg.get("neutral")
 
-    emotions = speaker_cfg['emotions']
-    params = emotions.get(emotion) or emotions.get('neutral')
+    if not speaker_cfg:
+        raise KeyError("No 'neutral' speaker defined")
 
-    if params is None:
-        raise KeyError(f"No emotion '{emotion}' or 'neutral' defined")
+    emotions = speaker_cfg["emotions"]
+    params = emotions.get(emotion) or emotions.get("neutral")
 
-    return speaker_cfg['voice'], params
+    if not params:
+        raise KeyError("No 'neutral' emotion defined")
+
+    return speaker_cfg["voice"], params
