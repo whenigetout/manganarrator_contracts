@@ -134,7 +134,7 @@ def save_versioned_media(
         media_root
         / ns
         / run_id
-        / f"{img_path_without_ext.name}_{img_ext}"
+        / f"{img_path_without_ext}_{img_ext}"
         / f"dialogue__{dialogue_id}"
     )
 
