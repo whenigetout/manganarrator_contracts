@@ -1,22 +1,29 @@
 # AUTO-GENERATED FILE — DO NOT EDIT
 # Source: cfg/tts_emotions.yaml
 
-from typing import Dict, TypedDict
-
-class EmotionParams(TypedDict, total=False):
-    exaggeration: float
-    cfg: float
-    # future fields allowed (e.g. volume_boost)
+from typing import Dict
+from pydantic import BaseModel, ConfigDict, TypeAdapter
 
 
-class SpeakerCfg(TypedDict):
+class EmotionParams(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    exaggeration: float | None = None
+    cfg: float | None = None
+    # future fields allowed automatically (e.g. volume_boost)
+
+
+class SpeakerCfg(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
     voice: str
     emotions: Dict[str, EmotionParams]
 
-TTSCFG: Dict[str, Dict[str, SpeakerCfg]] = {
+
+TTSCFG_RAW = {
   "neutral": {
     "neutral": {
-      "voice": "male_generic.wav",
+      "voice": "male_default.wav",
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
@@ -75,7 +82,7 @@ TTSCFG: Dict[str, Dict[str, SpeakerCfg]] = {
   },
   "male": {
     "speaker 1": {
-      "voice": "male_generic.wav",
+      "voice": "male_default.wav",
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
@@ -191,7 +198,7 @@ TTSCFG: Dict[str, Dict[str, SpeakerCfg]] = {
   },
   "female": {
     "speaker 1": {
-      "voice": "male_generic.wav",
+      "voice": "rote_soft.wav",
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
@@ -535,26 +542,34 @@ TTSCFG: Dict[str, Dict[str, SpeakerCfg]] = {
   }
 }
 
+_TTSCFG_ADAPTER = TypeAdapter(dict[str, dict[str, SpeakerCfg]])
+TTSCFG: dict[str, dict[str, SpeakerCfg]] = _TTSCFG_ADAPTER.validate_python(TTSCFG_RAW)
+
+
 def resolve_tts(
     gender: str,
     speaker: str,
     emotion: str,
 ) -> tuple[str, EmotionParams]:
+    """
+    Returns (voice_filename, emotion_params)
+    Predictable fallback: gender → neutral, speaker → neutral, emotion → neutral
+    """
 
-    gender_cfg = TTSCFG.get(gender) or TTSCFG.get("neutral")
-
+    gender_cfg = TTSCFG.get(gender) or TTSCFG.get('neutral')
     if not gender_cfg:
         raise KeyError("No 'neutral' gender defined in TTSCFG")
 
-    speaker_cfg = gender_cfg.get(speaker) or gender_cfg.get("neutral")
-
+    speaker_cfg = gender_cfg.get(speaker) or gender_cfg.get('neutral')
     if not speaker_cfg:
         raise KeyError("No 'neutral' speaker defined")
 
-    emotions = speaker_cfg["emotions"]
-    params = emotions.get(emotion) or emotions.get("neutral")
+    params = (
+        speaker_cfg.emotions.get(emotion)
+        or speaker_cfg.emotions.get('neutral')
+    )
 
     if not params:
         raise KeyError("No 'neutral' emotion defined")
 
-    return speaker_cfg["voice"], params
+    return speaker_cfg.voice, params

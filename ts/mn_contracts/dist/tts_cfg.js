@@ -3,7 +3,7 @@
 export const TTS_CFG = {
     "neutral": {
         "neutral": {
-            "voice": "male_generic.wav",
+            "voice": "male_default.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
@@ -62,7 +62,7 @@ export const TTS_CFG = {
     },
     "male": {
         "speaker 1": {
-            "voice": "male_generic.wav",
+            "voice": "male_default.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
@@ -178,7 +178,7 @@ export const TTS_CFG = {
     },
     "female": {
         "speaker 1": {
-            "voice": "male_generic.wav",
+            "voice": "rote_soft.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
@@ -522,21 +522,14 @@ export const TTS_CFG = {
     }
 };
 export function resolveTTS(gender, speaker, emotion) {
-    const genderCfg = TTS_CFG[gender] ?? TTS_CFG["neutral"];
-    if (!genderCfg) {
-        throw new Error(`No 'neutral' gender defined in TTS_CFG`);
-    }
-    const speakerCfg = genderCfg[speaker] ?? genderCfg["neutral"];
-    if (!speakerCfg) {
-        throw new Error(`No 'neutral' speaker defined`);
-    }
-    const emotions = speakerCfg.emotions;
-    const params = emotions[emotion] ?? emotions["neutral"];
-    if (!params) {
-        throw new Error(`No 'neutral' emotion defined`);
-    }
-    return {
-        voice: speakerCfg.voice,
-        params,
-    };
+    const genderCfg = TTS_CFG[gender] ?? TTS_CFG['neutral'];
+    if (!genderCfg)
+        throw new Error("No 'neutral' gender defined");
+    const speakerCfg = genderCfg[speaker] ?? genderCfg['neutral'];
+    if (!speakerCfg)
+        throw new Error("No 'neutral' speaker defined");
+    const params = speakerCfg.emotions[emotion] ?? speakerCfg.emotions['neutral'];
+    if (!params)
+        throw new Error("No 'neutral' emotion defined");
+    return { voice: speakerCfg.voice, params };
 }

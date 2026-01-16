@@ -9,7 +9,7 @@ export type SpeakerCfg = {
 export declare const TTS_CFG: {
     readonly neutral: {
         readonly neutral: {
-            readonly voice: "male_generic.wav";
+            readonly voice: "male_default.wav";
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
@@ -68,7 +68,7 @@ export declare const TTS_CFG: {
     };
     readonly male: {
         readonly "speaker 1": {
-            readonly voice: "male_generic.wav";
+            readonly voice: "male_default.wav";
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
@@ -184,7 +184,7 @@ export declare const TTS_CFG: {
     };
     readonly female: {
         readonly "speaker 1": {
-            readonly voice: "male_generic.wav";
+            readonly voice: "rote_soft.wav";
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;

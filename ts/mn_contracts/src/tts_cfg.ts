@@ -1,8 +1,6 @@
 // AUTO-GENERATED FILE — DO NOT EDIT
 // Source: cfg/tts_emotions.yaml
 
-/* ---------------- gender ---------------- */
-
 export type EmotionParams = {
   exaggeration?: number
   cfg?: number
@@ -17,7 +15,7 @@ export type SpeakerCfg = {
 export const TTS_CFG = {
   "neutral": {
     "neutral": {
-      "voice": "male_generic.wav",
+      "voice": "male_default.wav",
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
@@ -76,7 +74,7 @@ export const TTS_CFG = {
   },
   "male": {
     "speaker 1": {
-      "voice": "male_generic.wav",
+      "voice": "male_default.wav",
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
@@ -192,7 +190,7 @@ export const TTS_CFG = {
   },
   "female": {
     "speaker 1": {
-      "voice": "male_generic.wav",
+      "voice": "rote_soft.wav",
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
@@ -545,31 +543,14 @@ export function resolveTTS(
   speaker: string,
   emotion: string
 ): { voice: string; params: EmotionParams } {
+  const genderCfg = TTS_CFG[gender] ?? TTS_CFG['neutral']
+  if (!genderCfg) throw new Error("No 'neutral' gender defined")
 
-  const genderCfg =
-    TTS_CFG[gender] ?? TTS_CFG["neutral"]
+  const speakerCfg = (genderCfg as any)[speaker] ?? (genderCfg as any)['neutral']
+  if (!speakerCfg) throw new Error("No 'neutral' speaker defined")
 
-  if (!genderCfg) {
-    throw new Error(`No 'neutral' gender defined in TTS_CFG`)
-  }
+  const params = speakerCfg.emotions[emotion] ?? speakerCfg.emotions['neutral']
+  if (!params) throw new Error("No 'neutral' emotion defined")
 
-  const speakerCfg =
-    (genderCfg as any)[speaker] ?? (genderCfg as any)["neutral"]
-
-  if (!speakerCfg) {
-    throw new Error(`No 'neutral' speaker defined`)
-  }
-
-  const emotions = speakerCfg.emotions as Record<string, EmotionParams>
-  const params = emotions[emotion] ?? emotions["neutral"]
-
-  if (!params) {
-    throw new Error(`No 'neutral' emotion defined`)
-  }
-
-  return {
-    voice: speakerCfg.voice,
-    params,
-  }
+  return { voice: speakerCfg.voice, params }
 }
-
