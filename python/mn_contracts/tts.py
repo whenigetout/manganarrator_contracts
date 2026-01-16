@@ -128,9 +128,11 @@ def save_versioned_media(
     img_path_without_ext = Path(image_ref.path).with_suffix("")
     img_ext = image_ref.suffix[1:]
 
+    ns = media_namespace.value
+
     base_dir = (
         media_root
-        / media_namespace
+        / ns
         / run_id
         / f"{img_path_without_ext.name}_{img_ext}"
         / f"dialogue__{dialogue_id}"
@@ -146,7 +148,7 @@ def save_versioned_media(
 
     return MediaRef(
         namespace=media_namespace,
-        path=out_path.relative_to(media_root / media_namespace).as_posix()
+        path=out_path.relative_to(media_root / ns).as_posix()
     )
 
 # Helper to extract version number of tts generated wav file by checking existing files
