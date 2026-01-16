@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, ConfigDict, field_validator
 from enum import Enum
 from typing import Optional, Literal, Final
 from pathlib import Path
-import ocr as o
+import mn_contracts.ocr as o
 
 class EmotionParams(BaseModel):
     model_config = ConfigDict(frozen=True)
