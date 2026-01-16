@@ -57,3 +57,12 @@ def build_media_Ref(namespace: o.MediaNamespace, path: str | Path) -> o.MediaRef
         return media_ref
     except Exception as e:
         raise ValueError("Invalid path passed") from e
+
+def load_yaml(path: Path | str):
+    import yaml
+    
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError(f"Missing YAML config: {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
