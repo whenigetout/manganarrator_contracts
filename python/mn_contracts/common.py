@@ -3,6 +3,11 @@ from pathlib import Path
 from typing import Union
 import json
 import mn_contracts.ocr as o
+import traceback
+
+def log_exception(context: str = "Unhandled exception", label: str = "💀"):
+    print(f"\n{label} {context}:")
+    traceback.print_exc()
 
 def save_model_json(
     model: BaseModel,

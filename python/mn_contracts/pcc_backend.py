@@ -3,6 +3,8 @@ from typing import List, Optional
 import mn_contracts.ocr as d
 from pathlib import Path
 import mn_contracts.common as c
+from mn_contracts.ocr import MediaRef, MediaNamespace
+from mn_contracts.tts import get_next_version
 
 class MangaDirViewResponse(BaseModel):
     folders: List[d.MediaRef]
@@ -90,3 +92,44 @@ def latest_tts_audio_ref(
     except Exception as e:
         # --- HARD FAILURE SAFETY NET ---
         raise
+
+def save_versioned_media(
+    *,
+    media_root: Path | str,
+    media_namespace: MediaNamespace,
+    run_id: str,
+    image_ref: MediaRef,
+    dialogue_id: int,
+    content: bytes,
+    suffix: str = "recorded",
+    ext: str = "wav"
+) -> MediaRef:
+    """
+    Save versioned media (audio/video/etc) for a dialogue line.
+    """
+
+    img_path_without_ext = Path(image_ref.path).with_suffix("")
+    img_ext = image_ref.suffix[1:]
+
+    ns = media_namespace.value
+
+    base_dir = (
+        Path(media_root)
+        / ns
+        / run_id
+        / f"{img_path_without_ext.name}_{img_ext}"
+        / f"dialogue__{dialogue_id}"
+    )
+
+    c.ensure_dir(base_dir)
+
+    version = get_next_version(base_dir)
+    filename = f"v{version}__{suffix}.{ext}"
+
+    out_path = base_dir / filename
+    out_path.write_bytes(content)
+
+    return MediaRef(
+        namespace=media_namespace,
+        path=out_path.relative_to(Path(media_root) / ns).as_posix()
+    )
