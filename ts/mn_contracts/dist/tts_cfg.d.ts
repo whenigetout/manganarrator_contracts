@@ -1,6 +1,6 @@
 export type EmotionParams = {
-    exaggeration?: number;
-    cfg?: number;
+    exaggeration: number;
+    cfg: number;
 };
 export type SpeakerCfg = {
     voice: string;

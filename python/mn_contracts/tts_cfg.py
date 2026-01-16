@@ -8,8 +8,8 @@ from pydantic import BaseModel, ConfigDict, TypeAdapter
 class EmotionParams(BaseModel):
     model_config = ConfigDict(frozen=True)
 
-    exaggeration: float | None = None
-    cfg: float | None = None
+    exaggeration: float
+    cfg: float
     # future fields allowed automatically
 
 
