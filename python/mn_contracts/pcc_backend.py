@@ -1,9 +1,9 @@
 from pydantic import BaseModel, ValidationError
-from typing import List, Optional
+from typing import List, Optional, Literal
 import mn_contracts.ocr as d
 from pathlib import Path
 import mn_contracts.common as c
-from mn_contracts.ocr import MediaRef, MediaNamespace
+from mn_contracts.ocr import MediaRef, MediaNamespace, ImageInfo
 from mn_contracts.tts import get_next_version
 
 class MangaDirViewResponse(BaseModel):
@@ -14,6 +14,26 @@ class LatestTTSResponse(BaseModel):
     status: str                 # "success" | "error"
     audio_path: Optional[str]   # present on success
     error: Optional[str]        # present on error
+
+MediaType = Literal["audio", "video"]
+
+class SaveMediaRequest(BaseModel):
+    # identity
+    run_id: str
+
+    # location / association
+    image_id: Optional[int] = None
+    image_ref: MediaRef
+    dialogue_id: Optional[int] = None
+
+    # media description
+    media_type: MediaType = "audio"
+    ext: str = "wav"          # keep flexible
+    suffix: str = ""          # e.g. "recorded", "bgm", "final"
+
+    # optional future metadata
+    source: Optional[str] = None  # "tts", "mic", "bgm", etc
+
 
 def latest_tts_audio_ref(
         run_id: str,
