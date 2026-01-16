@@ -27,9 +27,15 @@ def load_yaml() -> Dict[str, Any]:
 
 
 def validate_schema(cfg: Dict[str, Any]) -> None:
+    if "neutral" not in cfg:
+        raise ValueError("Top-level 'neutral' gender is required")
+
     for gender, speakers in cfg.items():
         if not isinstance(speakers, dict):
             raise ValueError(f"{gender} must map to speakers")
+
+        if "neutral" not in speakers:
+            raise ValueError(f"{gender} must define a 'neutral' speaker")
 
         for speaker, data in speakers.items():
             if not isinstance(data, dict):
@@ -38,15 +44,15 @@ def validate_schema(cfg: Dict[str, Any]) -> None:
             if "voice" not in data:
                 raise ValueError(f"{gender}.{speaker} missing 'voice'")
 
-            if "emotions" not in data:
-                raise ValueError(f"{gender}.{speaker} missing 'emotions'")
-
-            if not isinstance(data["emotions"], dict):
+            if "emotions" not in data or not isinstance(data["emotions"], dict):
                 raise ValueError(f"{gender}.{speaker}.emotions must be a mapping")
+
+            if "neutral" not in data["emotions"]:
+                raise ValueError(f"{gender}.{speaker} must define 'neutral' emotion")
 
 
 # -----------------------------
-# Python generation (PYDANTIC)
+# Python generation (Pydantic)
 # -----------------------------
 
 def generate_python(cfg: Dict[str, Any]) -> None:
@@ -59,11 +65,18 @@ def generate_python(cfg: Dict[str, Any]) -> None:
         "    model_config = ConfigDict(frozen=True)\n\n"
         "    exaggeration: float | None = None\n"
         "    cfg: float | None = None\n"
-        "    # future fields allowed automatically (e.g. volume_boost)\n\n\n"
+        "    # future fields allowed automatically\n\n\n"
         "class SpeakerCfg(BaseModel):\n"
         "    model_config = ConfigDict(frozen=True)\n\n"
         "    voice: str\n"
         "    emotions: Dict[str, EmotionParams]\n\n\n"
+        "class ResolvedTTS(BaseModel):\n"
+        "    model_config = ConfigDict(frozen=True)\n\n"
+        "    gender: str\n"
+        "    speaker: str\n"
+        "    emotion: str\n"
+        "    voice: str\n"
+        "    params: EmotionParams\n\n\n"
         "TTSCFG_RAW = "
         + json.dumps(cfg, indent=2)
         + "\n\n"
@@ -73,31 +86,42 @@ def generate_python(cfg: Dict[str, Any]) -> None:
         "    gender: str,\n"
         "    speaker: str,\n"
         "    emotion: str,\n"
-        ") -> tuple[str, EmotionParams]:\n"
+        ") -> ResolvedTTS:\n"
         "    \"\"\"\n"
-        "    Returns (voice_filename, emotion_params)\n"
-        "    Predictable fallback: gender → neutral, speaker → neutral, emotion → neutral\n"
+        "    Predictable fallback:\n"
+        "      gender → neutral\n"
+        "      speaker → neutral\n"
+        "      emotion → neutral\n"
+        "    Returns fully resolved names + params.\n"
         "    \"\"\"\n\n"
-        "    gender_cfg = TTSCFG.get(gender) or TTSCFG.get('neutral')\n"
+        "    resolved_gender = gender if gender in TTSCFG else 'neutral'\n"
+        "    gender_cfg = TTSCFG.get(resolved_gender)\n\n"
         "    if not gender_cfg:\n"
         "        raise KeyError(\"No 'neutral' gender defined in TTSCFG\")\n\n"
-        "    speaker_cfg = gender_cfg.get(speaker) or gender_cfg.get('neutral')\n"
+        "    resolved_speaker = speaker if speaker in gender_cfg else 'neutral'\n"
+        "    speaker_cfg = gender_cfg.get(resolved_speaker)\n\n"
         "    if not speaker_cfg:\n"
         "        raise KeyError(\"No 'neutral' speaker defined\")\n\n"
-        "    params = (\n"
-        "        speaker_cfg.emotions.get(emotion)\n"
-        "        or speaker_cfg.emotions.get('neutral')\n"
-        "    )\n\n"
+        "    resolved_emotion = (\n"
+        "        emotion if emotion in speaker_cfg.emotions else 'neutral'\n"
+        "    )\n"
+        "    params = speaker_cfg.emotions.get(resolved_emotion)\n\n"
         "    if not params:\n"
         "        raise KeyError(\"No 'neutral' emotion defined\")\n\n"
-        "    return speaker_cfg.voice, params\n"
+        "    return ResolvedTTS(\n"
+        "        gender=resolved_gender,\n"
+        "        speaker=resolved_speaker,\n"
+        "        emotion=resolved_emotion,\n"
+        "        voice=speaker_cfg.voice,\n"
+        "        params=params,\n"
+        "    )\n"
     )
 
     PY_OUT.write_text(content, encoding="utf-8")
 
 
 # -----------------------------
-# TypeScript generation (UNCHANGED)
+# TypeScript generation
 # -----------------------------
 
 def generate_ts(cfg: Dict[str, Any]) -> None:
@@ -107,7 +131,6 @@ def generate_ts(cfg: Dict[str, Any]) -> None:
         "export type EmotionParams = {\n"
         "  exaggeration?: number\n"
         "  cfg?: number\n"
-        "  // future fields allowed (e.g. volume_boost)\n"
         "}\n\n"
         "export type SpeakerCfg = {\n"
         "  voice: string\n"
@@ -116,21 +139,44 @@ def generate_ts(cfg: Dict[str, Any]) -> None:
         "export const TTS_CFG = "
         + json.dumps(cfg, indent=2)
         + " as const\n\n"
-        "export type GenderKey = keyof typeof TTS_CFG\n"
-        "export type SpeakerKey<G extends GenderKey> = keyof typeof TTS_CFG[G]\n"
-        "export type EmotionKey = string\n\n"
+        "export type GenderKey = keyof typeof TTS_CFG\n\n"
+        "export type ResolvedTTS = {\n"
+        "  gender: GenderKey\n"
+        "  speaker: string\n"
+        "  emotion: string\n"
+        "  voice: string\n"
+        "  params: EmotionParams\n"
+        "}\n\n"
         "export function resolveTTS(\n"
         "  gender: GenderKey,\n"
         "  speaker: string,\n"
         "  emotion: string\n"
-        "): { voice: string; params: EmotionParams } {\n"
-        "  const genderCfg = TTS_CFG[gender] ?? TTS_CFG['neutral']\n"
-        "  if (!genderCfg) throw new Error(\"No 'neutral' gender defined\")\n\n"
-        "  const speakerCfg = (genderCfg as any)[speaker] ?? (genderCfg as any)['neutral']\n"
-        "  if (!speakerCfg) throw new Error(\"No 'neutral' speaker defined\")\n\n"
-        "  const params = speakerCfg.emotions[emotion] ?? speakerCfg.emotions['neutral']\n"
-        "  if (!params) throw new Error(\"No 'neutral' emotion defined\")\n\n"
-        "  return { voice: speakerCfg.voice, params }\n"
+        "): ResolvedTTS {\n"
+        "  const resolvedGender =\n"
+        "    gender in TTS_CFG ? gender : 'neutral'\n\n"
+        "  const genderCfg = TTS_CFG[resolvedGender]\n"
+        "  if (!genderCfg) {\n"
+        "    throw new Error(\"No 'neutral' gender defined in TTS_CFG\")\n"
+        "  }\n\n"
+        "  const resolvedSpeaker =\n"
+        "    speaker in genderCfg ? speaker : 'neutral'\n\n"
+        "  const speakerCfg = (genderCfg as any)[resolvedSpeaker]\n"
+        "  if (!speakerCfg) {\n"
+        "    throw new Error(\"No 'neutral' speaker defined\")\n"
+        "  }\n\n"
+        "  const resolvedEmotion =\n"
+        "    emotion in speakerCfg.emotions ? emotion : 'neutral'\n\n"
+        "  const params = speakerCfg.emotions[resolvedEmotion]\n"
+        "  if (!params) {\n"
+        "    throw new Error(\"No 'neutral' emotion defined\")\n"
+        "  }\n\n"
+        "  return {\n"
+        "    gender: resolvedGender,\n"
+        "    speaker: resolvedSpeaker,\n"
+        "    emotion: resolvedEmotion,\n"
+        "    voice: speakerCfg.voice,\n"
+        "    params,\n"
+        "  }\n"
         "}\n"
     )
 
@@ -145,7 +191,7 @@ def main() -> None:
     cfg = load_yaml()
     generate_python(cfg)
     generate_ts(cfg)
-    print("✓ Generated TTS contracts (Python=Pydantic, TS unchanged)")
+    print("✓ Generated TTS contracts with resolved output (Python + TS)")
 
 
 if __name__ == "__main__":

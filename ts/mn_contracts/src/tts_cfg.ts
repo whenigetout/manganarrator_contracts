@@ -4,7 +4,6 @@
 export type EmotionParams = {
   exaggeration?: number
   cfg?: number
-  // future fields allowed (e.g. volume_boost)
 }
 
 export type SpeakerCfg = {
@@ -130,7 +129,7 @@ export const TTS_CFG = {
         }
       }
     },
-    "male_generic": {
+    "neutral": {
       "voice": "male_generic.wav",
       "emotions": {
         "neutral": {
@@ -246,7 +245,7 @@ export const TTS_CFG = {
         }
       }
     },
-    "female_generic": {
+    "neutral": {
       "voice": "male_generic.wav",
       "emotions": {
         "neutral": {
@@ -535,22 +534,49 @@ export const TTS_CFG = {
 } as const
 
 export type GenderKey = keyof typeof TTS_CFG
-export type SpeakerKey<G extends GenderKey> = keyof typeof TTS_CFG[G]
-export type EmotionKey = string
+
+export type ResolvedTTS = {
+  gender: GenderKey
+  speaker: string
+  emotion: string
+  voice: string
+  params: EmotionParams
+}
 
 export function resolveTTS(
   gender: GenderKey,
   speaker: string,
   emotion: string
-): { voice: string; params: EmotionParams } {
-  const genderCfg = TTS_CFG[gender] ?? TTS_CFG['neutral']
-  if (!genderCfg) throw new Error("No 'neutral' gender defined")
+): ResolvedTTS {
+  const resolvedGender =
+    gender in TTS_CFG ? gender : 'neutral'
 
-  const speakerCfg = (genderCfg as any)[speaker] ?? (genderCfg as any)['neutral']
-  if (!speakerCfg) throw new Error("No 'neutral' speaker defined")
+  const genderCfg = TTS_CFG[resolvedGender]
+  if (!genderCfg) {
+    throw new Error("No 'neutral' gender defined in TTS_CFG")
+  }
 
-  const params = speakerCfg.emotions[emotion] ?? speakerCfg.emotions['neutral']
-  if (!params) throw new Error("No 'neutral' emotion defined")
+  const resolvedSpeaker =
+    speaker in genderCfg ? speaker : 'neutral'
 
-  return { voice: speakerCfg.voice, params }
+  const speakerCfg = (genderCfg as any)[resolvedSpeaker]
+  if (!speakerCfg) {
+    throw new Error("No 'neutral' speaker defined")
+  }
+
+  const resolvedEmotion =
+    emotion in speakerCfg.emotions ? emotion : 'neutral'
+
+  const params = speakerCfg.emotions[resolvedEmotion]
+  if (!params) {
+    throw new Error("No 'neutral' emotion defined")
+  }
+
+  return {
+    gender: resolvedGender,
+    speaker: resolvedSpeaker,
+    emotion: resolvedEmotion,
+    voice: speakerCfg.voice,
+    params,
+  }
 }

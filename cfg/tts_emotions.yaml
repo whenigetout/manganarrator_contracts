@@ -88,7 +88,7 @@ male:
       serious:     { exaggeration: 1.1, cfg: 0.5 }
       calm:        { exaggeration: 0.6, cfg: 0.4 }
 
-  male_generic:
+  neutral:
     voice: "male_generic.wav"
     emotions:
       neutral:     { exaggeration: 0.5, cfg: 0.6 }
@@ -123,7 +123,7 @@ female:
       serious:     { exaggeration: 1.1, cfg: 0.5 }
       calm:        { exaggeration: 0.6, cfg: 0.4 }
 
-  female_generic:
+  neutral:
     voice: "male_generic.wav"
     emotions:
       neutral:     { exaggeration: 0.5, cfg: 0.7 }

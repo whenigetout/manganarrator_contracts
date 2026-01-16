@@ -124,7 +124,7 @@ export declare const TTS_CFG: {
                 };
             };
         };
-        readonly male_generic: {
+        readonly neutral: {
             readonly voice: "male_generic.wav";
             readonly emotions: {
                 readonly neutral: {
@@ -240,7 +240,7 @@ export declare const TTS_CFG: {
                 };
             };
         };
-        readonly female_generic: {
+        readonly neutral: {
             readonly voice: "male_generic.wav";
             readonly emotions: {
                 readonly neutral: {
@@ -528,9 +528,11 @@ export declare const TTS_CFG: {
     };
 };
 export type GenderKey = keyof typeof TTS_CFG;
-export type SpeakerKey<G extends GenderKey> = keyof typeof TTS_CFG[G];
-export type EmotionKey = string;
-export declare function resolveTTS(gender: GenderKey, speaker: string, emotion: string): {
+export type ResolvedTTS = {
+    gender: GenderKey;
+    speaker: string;
+    emotion: string;
     voice: string;
     params: EmotionParams;
 };
+export declare function resolveTTS(gender: GenderKey, speaker: string, emotion: string): ResolvedTTS;
