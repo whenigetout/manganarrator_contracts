@@ -3,7 +3,7 @@
 export const TTS_CFG = {
     "neutral": {
         "neutral": {
-            "voice": "male_default.wav",
+            "voice": "male/male_1.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
@@ -61,8 +61,8 @@ export const TTS_CFG = {
         }
     },
     "male": {
-        "speaker 1": {
-            "voice": "male_default.wav",
+        "neutral": {
+            "voice": "male/male_1.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
@@ -118,8 +118,293 @@ export const TTS_CFG = {
                 }
             }
         },
-        "neutral": {
-            "voice": "male_generic.wav",
+        "mc": {
+            "voice": "male/male_mc.wav",
+            "emotions": {
+                "neutral": {
+                    "exaggeration": 0.5,
+                    "cfg": 0.6
+                },
+                "happy": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.65
+                },
+                "sad": {
+                    "exaggeration": 0.3,
+                    "cfg": 0.3
+                },
+                "angry": {
+                    "exaggeration": 1.5,
+                    "cfg": 0.6
+                },
+                "excited": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "surprised": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "nervous": {
+                    "exaggeration": 0.4,
+                    "cfg": 0.3
+                },
+                "aroused": {
+                    "exaggeration": 0.2,
+                    "cfg": 0.4
+                },
+                "scared": {
+                    "exaggeration": 0.8,
+                    "cfg": 0.9
+                },
+                "curious": {
+                    "exaggeration": 0.7,
+                    "cfg": 0.4
+                },
+                "playful": {
+                    "exaggeration": 1.0,
+                    "cfg": 0.4
+                },
+                "serious": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.5
+                },
+                "calm": {
+                    "exaggeration": 0.6,
+                    "cfg": 0.4
+                }
+            }
+        },
+        "narrator": {
+            "voice": "male/male_narrator.wav",
+            "emotions": {
+                "neutral": {
+                    "exaggeration": 0.5,
+                    "cfg": 0.6
+                },
+                "happy": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.65
+                },
+                "sad": {
+                    "exaggeration": 0.3,
+                    "cfg": 0.3
+                },
+                "angry": {
+                    "exaggeration": 1.5,
+                    "cfg": 0.6
+                },
+                "excited": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "surprised": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "nervous": {
+                    "exaggeration": 0.4,
+                    "cfg": 0.3
+                },
+                "aroused": {
+                    "exaggeration": 0.2,
+                    "cfg": 0.4
+                },
+                "scared": {
+                    "exaggeration": 0.8,
+                    "cfg": 0.9
+                },
+                "curious": {
+                    "exaggeration": 0.7,
+                    "cfg": 0.4
+                },
+                "playful": {
+                    "exaggeration": 1.0,
+                    "cfg": 0.4
+                },
+                "serious": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.5
+                },
+                "calm": {
+                    "exaggeration": 0.6,
+                    "cfg": 0.4
+                }
+            }
+        },
+        "speaker 1": {
+            "voice": "male/male_mc.wav",
+            "emotions": {
+                "neutral": {
+                    "exaggeration": 0.5,
+                    "cfg": 0.6
+                },
+                "happy": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.65
+                },
+                "sad": {
+                    "exaggeration": 0.3,
+                    "cfg": 0.3
+                },
+                "angry": {
+                    "exaggeration": 1.5,
+                    "cfg": 0.6
+                },
+                "excited": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "surprised": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "nervous": {
+                    "exaggeration": 0.4,
+                    "cfg": 0.3
+                },
+                "aroused": {
+                    "exaggeration": 0.2,
+                    "cfg": 0.4
+                },
+                "scared": {
+                    "exaggeration": 0.8,
+                    "cfg": 0.9
+                },
+                "curious": {
+                    "exaggeration": 0.7,
+                    "cfg": 0.4
+                },
+                "playful": {
+                    "exaggeration": 1.0,
+                    "cfg": 0.4
+                },
+                "serious": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.5
+                },
+                "calm": {
+                    "exaggeration": 0.6,
+                    "cfg": 0.4
+                }
+            }
+        },
+        "speaker 2": {
+            "voice": "male/male_1.wav",
+            "emotions": {
+                "neutral": {
+                    "exaggeration": 0.5,
+                    "cfg": 0.6
+                },
+                "happy": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.65
+                },
+                "sad": {
+                    "exaggeration": 0.3,
+                    "cfg": 0.3
+                },
+                "angry": {
+                    "exaggeration": 1.5,
+                    "cfg": 0.6
+                },
+                "excited": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "surprised": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "nervous": {
+                    "exaggeration": 0.4,
+                    "cfg": 0.3
+                },
+                "aroused": {
+                    "exaggeration": 0.2,
+                    "cfg": 0.4
+                },
+                "scared": {
+                    "exaggeration": 0.8,
+                    "cfg": 0.9
+                },
+                "curious": {
+                    "exaggeration": 0.7,
+                    "cfg": 0.4
+                },
+                "playful": {
+                    "exaggeration": 1.0,
+                    "cfg": 0.4
+                },
+                "serious": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.5
+                },
+                "calm": {
+                    "exaggeration": 0.6,
+                    "cfg": 0.4
+                }
+            }
+        },
+        "speaker 3": {
+            "voice": "male/male_1.wav",
+            "emotions": {
+                "neutral": {
+                    "exaggeration": 0.5,
+                    "cfg": 0.6
+                },
+                "happy": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.65
+                },
+                "sad": {
+                    "exaggeration": 0.3,
+                    "cfg": 0.3
+                },
+                "angry": {
+                    "exaggeration": 1.5,
+                    "cfg": 0.6
+                },
+                "excited": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "surprised": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "nervous": {
+                    "exaggeration": 0.4,
+                    "cfg": 0.3
+                },
+                "aroused": {
+                    "exaggeration": 0.2,
+                    "cfg": 0.4
+                },
+                "scared": {
+                    "exaggeration": 0.8,
+                    "cfg": 0.9
+                },
+                "curious": {
+                    "exaggeration": 0.7,
+                    "cfg": 0.4
+                },
+                "playful": {
+                    "exaggeration": 1.0,
+                    "cfg": 0.4
+                },
+                "serious": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.5
+                },
+                "calm": {
+                    "exaggeration": 0.6,
+                    "cfg": 0.4
+                }
+            }
+        },
+        "speaker 4": {
+            "voice": "male/male_1.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
@@ -177,65 +462,8 @@ export const TTS_CFG = {
         }
     },
     "female": {
-        "speaker 1": {
-            "voice": "rote_soft.wav",
-            "emotions": {
-                "neutral": {
-                    "exaggeration": 0.5,
-                    "cfg": 0.7
-                },
-                "happy": {
-                    "exaggeration": 1.1,
-                    "cfg": 0.65
-                },
-                "sad": {
-                    "exaggeration": 0.3,
-                    "cfg": 0.3
-                },
-                "angry": {
-                    "exaggeration": 1.3,
-                    "cfg": 0.6
-                },
-                "excited": {
-                    "exaggeration": 1.2,
-                    "cfg": 0.7
-                },
-                "surprised": {
-                    "exaggeration": 1.2,
-                    "cfg": 0.7
-                },
-                "nervous": {
-                    "exaggeration": 0.4,
-                    "cfg": 0.3
-                },
-                "aroused": {
-                    "exaggeration": 0.2,
-                    "cfg": 0.4
-                },
-                "scared": {
-                    "exaggeration": 0.8,
-                    "cfg": 0.9
-                },
-                "curious": {
-                    "exaggeration": 0.7,
-                    "cfg": 0.4
-                },
-                "playful": {
-                    "exaggeration": 1.0,
-                    "cfg": 0.4
-                },
-                "serious": {
-                    "exaggeration": 1.1,
-                    "cfg": 0.5
-                },
-                "calm": {
-                    "exaggeration": 0.6,
-                    "cfg": 0.4
-                }
-            }
-        },
         "neutral": {
-            "voice": "male_generic.wav",
+            "voice": "female/adjest.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
@@ -291,12 +519,12 @@ export const TTS_CFG = {
                 }
             }
         },
-        "female_shelby": {
-            "voice": "male_generic.wav",
+        "mc": {
+            "voice": "female/romantica.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
-                    "cfg": 0.6
+                    "cfg": 0.7
                 },
                 "happy": {
                     "exaggeration": 1.1,
@@ -348,12 +576,12 @@ export const TTS_CFG = {
                 }
             }
         },
-        "rote_loud": {
-            "voice": "male_generic.wav",
+        "romantica": {
+            "voice": "female/romantica.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
-                    "cfg": 0.6
+                    "cfg": 0.7
                 },
                 "happy": {
                     "exaggeration": 1.1,
@@ -405,12 +633,12 @@ export const TTS_CFG = {
                 }
             }
         },
-        "rote_soft": {
-            "voice": "male_generic.wav",
+        "adjest": {
+            "voice": "female/adjest.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
-                    "cfg": 0.6
+                    "cfg": 0.7
                 },
                 "happy": {
                     "exaggeration": 1.1,
@@ -462,12 +690,69 @@ export const TTS_CFG = {
                 }
             }
         },
-        "rote_very_soft": {
-            "voice": "male_generic.wav",
+        "speaker 1": {
+            "voice": "female/romantica.wav",
             "emotions": {
                 "neutral": {
                     "exaggeration": 0.5,
+                    "cfg": 0.7
+                },
+                "happy": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.65
+                },
+                "sad": {
+                    "exaggeration": 0.3,
+                    "cfg": 0.3
+                },
+                "angry": {
+                    "exaggeration": 1.3,
                     "cfg": 0.6
+                },
+                "excited": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "surprised": {
+                    "exaggeration": 1.2,
+                    "cfg": 0.7
+                },
+                "nervous": {
+                    "exaggeration": 0.4,
+                    "cfg": 0.3
+                },
+                "aroused": {
+                    "exaggeration": 0.2,
+                    "cfg": 0.4
+                },
+                "scared": {
+                    "exaggeration": 0.8,
+                    "cfg": 0.9
+                },
+                "curious": {
+                    "exaggeration": 0.7,
+                    "cfg": 0.4
+                },
+                "playful": {
+                    "exaggeration": 1.0,
+                    "cfg": 0.4
+                },
+                "serious": {
+                    "exaggeration": 1.1,
+                    "cfg": 0.5
+                },
+                "calm": {
+                    "exaggeration": 0.6,
+                    "cfg": 0.4
+                }
+            }
+        },
+        "speaker 2": {
+            "voice": "female/adjest.wav",
+            "emotions": {
+                "neutral": {
+                    "exaggeration": 0.5,
+                    "cfg": 0.7
                 },
                 "happy": {
                     "exaggeration": 1.1,
