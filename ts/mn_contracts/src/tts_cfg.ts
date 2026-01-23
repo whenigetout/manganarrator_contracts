@@ -88,7 +88,7 @@ export const TTS_CFG = {
           "cfg": 0.3
         },
         "angry": {
-          "exaggeration": 1.5,
+          "exaggeration": 1.3,
           "cfg": 0.6
         },
         "excited": {
@@ -120,8 +120,8 @@ export const TTS_CFG = {
           "cfg": 0.4
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.6,
+          "cfg": 0.4
         },
         "calm": {
           "exaggeration": 0.6,
@@ -145,7 +145,7 @@ export const TTS_CFG = {
           "cfg": 0.3
         },
         "angry": {
-          "exaggeration": 1.5,
+          "exaggeration": 1.3,
           "cfg": 0.6
         },
         "excited": {
@@ -177,8 +177,8 @@ export const TTS_CFG = {
           "cfg": 0.4
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.6,
+          "cfg": 0.4
         },
         "calm": {
           "exaggeration": 0.6,
@@ -202,7 +202,7 @@ export const TTS_CFG = {
           "cfg": 0.3
         },
         "angry": {
-          "exaggeration": 1.5,
+          "exaggeration": 1.3,
           "cfg": 0.6
         },
         "excited": {
@@ -234,8 +234,8 @@ export const TTS_CFG = {
           "cfg": 0.4
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.6,
+          "cfg": 0.4
         },
         "calm": {
           "exaggeration": 0.6,
@@ -259,7 +259,7 @@ export const TTS_CFG = {
           "cfg": 0.3
         },
         "angry": {
-          "exaggeration": 1.5,
+          "exaggeration": 1.3,
           "cfg": 0.6
         },
         "excited": {
@@ -291,8 +291,8 @@ export const TTS_CFG = {
           "cfg": 0.4
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.6,
+          "cfg": 0.4
         },
         "calm": {
           "exaggeration": 0.6,
@@ -316,7 +316,7 @@ export const TTS_CFG = {
           "cfg": 0.3
         },
         "angry": {
-          "exaggeration": 1.5,
+          "exaggeration": 1.3,
           "cfg": 0.6
         },
         "excited": {
@@ -348,8 +348,8 @@ export const TTS_CFG = {
           "cfg": 0.4
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.6,
+          "cfg": 0.4
         },
         "calm": {
           "exaggeration": 0.6,
@@ -478,54 +478,54 @@ export const TTS_CFG = {
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
-          "cfg": 0.7
+          "cfg": 0.8
         },
         "happy": {
-          "exaggeration": 1.1,
+          "exaggeration": 0.9,
           "cfg": 0.65
         },
         "sad": {
           "exaggeration": 0.3,
-          "cfg": 0.3
+          "cfg": 0.7
         },
         "angry": {
-          "exaggeration": 1.3,
-          "cfg": 0.6
+          "exaggeration": 1.2,
+          "cfg": 0.9
         },
         "excited": {
-          "exaggeration": 1.2,
-          "cfg": 0.7
+          "exaggeration": 1.0,
+          "cfg": 0.8
         },
         "surprised": {
-          "exaggeration": 1.2,
-          "cfg": 0.7
+          "exaggeration": 1.0,
+          "cfg": 0.8
         },
         "nervous": {
           "exaggeration": 0.4,
-          "cfg": 0.3
+          "cfg": 0.6
         },
         "aroused": {
-          "exaggeration": 0.2,
+          "exaggeration": 0.4,
           "cfg": 0.4
         },
         "scared": {
-          "exaggeration": 0.8,
-          "cfg": 0.9
+          "exaggeration": 0.6,
+          "cfg": 0.5
         },
         "curious": {
-          "exaggeration": 0.7,
-          "cfg": 0.4
-        },
-        "playful": {
-          "exaggeration": 1.0,
-          "cfg": 0.4
-        },
-        "serious": {
           "exaggeration": 1.1,
           "cfg": 0.5
         },
+        "playful": {
+          "exaggeration": 1.3,
+          "cfg": 0.8
+        },
+        "serious": {
+          "exaggeration": 0.9,
+          "cfg": 1.1
+        },
         "calm": {
-          "exaggeration": 0.6,
+          "exaggeration": 0.4,
           "cfg": 0.4
         }
       }
@@ -535,55 +535,55 @@ export const TTS_CFG = {
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
-          "cfg": 0.7
+          "cfg": 0.8
         },
         "happy": {
-          "exaggeration": 1.1,
-          "cfg": 0.65
+          "exaggeration": 1.15,
+          "cfg": 0.8
         },
         "sad": {
           "exaggeration": 0.3,
-          "cfg": 0.3
-        },
-        "angry": {
-          "exaggeration": 1.3,
           "cfg": 0.6
         },
-        "excited": {
+        "angry": {
           "exaggeration": 1.2,
+          "cfg": 0.9
+        },
+        "excited": {
+          "exaggeration": 1.1,
           "cfg": 0.7
         },
         "surprised": {
-          "exaggeration": 1.2,
+          "exaggeration": 1.1,
           "cfg": 0.7
         },
         "nervous": {
           "exaggeration": 0.4,
-          "cfg": 0.3
+          "cfg": 0.7
         },
         "aroused": {
-          "exaggeration": 0.2,
-          "cfg": 0.4
-        },
-        "scared": {
-          "exaggeration": 0.8,
-          "cfg": 0.9
-        },
-        "curious": {
           "exaggeration": 0.7,
           "cfg": 0.4
         },
+        "scared": {
+          "exaggeration": 0.7,
+          "cfg": 0.5
+        },
+        "curious": {
+          "exaggeration": 1,
+          "cfg": 0.5
+        },
         "playful": {
-          "exaggeration": 1.0,
-          "cfg": 0.4
+          "exaggeration": 1,
+          "cfg": 0.7
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.7,
+          "cfg": 0.7
         },
         "calm": {
           "exaggeration": 0.6,
-          "cfg": 0.4
+          "cfg": 0.7
         }
       }
     },
@@ -592,55 +592,55 @@ export const TTS_CFG = {
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
-          "cfg": 0.7
+          "cfg": 0.8
         },
         "happy": {
-          "exaggeration": 1.1,
-          "cfg": 0.65
+          "exaggeration": 1.15,
+          "cfg": 0.8
         },
         "sad": {
           "exaggeration": 0.3,
-          "cfg": 0.3
-        },
-        "angry": {
-          "exaggeration": 1.3,
           "cfg": 0.6
         },
-        "excited": {
+        "angry": {
           "exaggeration": 1.2,
+          "cfg": 0.9
+        },
+        "excited": {
+          "exaggeration": 1.1,
           "cfg": 0.7
         },
         "surprised": {
-          "exaggeration": 1.2,
+          "exaggeration": 1.1,
           "cfg": 0.7
         },
         "nervous": {
           "exaggeration": 0.4,
-          "cfg": 0.3
+          "cfg": 0.7
         },
         "aroused": {
-          "exaggeration": 0.2,
-          "cfg": 0.4
-        },
-        "scared": {
-          "exaggeration": 0.8,
-          "cfg": 0.9
-        },
-        "curious": {
           "exaggeration": 0.7,
           "cfg": 0.4
         },
+        "scared": {
+          "exaggeration": 0.7,
+          "cfg": 0.5
+        },
+        "curious": {
+          "exaggeration": 1,
+          "cfg": 0.5
+        },
         "playful": {
-          "exaggeration": 1.0,
-          "cfg": 0.4
+          "exaggeration": 1,
+          "cfg": 0.7
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.7,
+          "cfg": 0.7
         },
         "calm": {
           "exaggeration": 0.6,
-          "cfg": 0.4
+          "cfg": 0.7
         }
       }
     },
@@ -649,54 +649,54 @@ export const TTS_CFG = {
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
-          "cfg": 0.7
+          "cfg": 0.8
         },
         "happy": {
-          "exaggeration": 1.1,
+          "exaggeration": 0.9,
           "cfg": 0.65
         },
         "sad": {
           "exaggeration": 0.3,
-          "cfg": 0.3
+          "cfg": 0.7
         },
         "angry": {
-          "exaggeration": 1.3,
-          "cfg": 0.6
+          "exaggeration": 1.2,
+          "cfg": 0.9
         },
         "excited": {
-          "exaggeration": 1.2,
-          "cfg": 0.7
+          "exaggeration": 1.0,
+          "cfg": 0.8
         },
         "surprised": {
-          "exaggeration": 1.2,
-          "cfg": 0.7
+          "exaggeration": 1.0,
+          "cfg": 0.8
         },
         "nervous": {
           "exaggeration": 0.4,
-          "cfg": 0.3
+          "cfg": 0.6
         },
         "aroused": {
-          "exaggeration": 0.2,
+          "exaggeration": 0.4,
           "cfg": 0.4
         },
         "scared": {
-          "exaggeration": 0.8,
-          "cfg": 0.9
+          "exaggeration": 0.6,
+          "cfg": 0.5
         },
         "curious": {
-          "exaggeration": 0.7,
-          "cfg": 0.4
-        },
-        "playful": {
-          "exaggeration": 1.0,
-          "cfg": 0.4
-        },
-        "serious": {
           "exaggeration": 1.1,
           "cfg": 0.5
         },
+        "playful": {
+          "exaggeration": 1.3,
+          "cfg": 0.8
+        },
+        "serious": {
+          "exaggeration": 0.9,
+          "cfg": 1.1
+        },
         "calm": {
-          "exaggeration": 0.6,
+          "exaggeration": 0.4,
           "cfg": 0.4
         }
       }
@@ -706,55 +706,55 @@ export const TTS_CFG = {
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
-          "cfg": 0.7
+          "cfg": 0.8
         },
         "happy": {
-          "exaggeration": 1.1,
-          "cfg": 0.65
+          "exaggeration": 1.15,
+          "cfg": 0.8
         },
         "sad": {
           "exaggeration": 0.3,
-          "cfg": 0.3
-        },
-        "angry": {
-          "exaggeration": 1.3,
           "cfg": 0.6
         },
-        "excited": {
+        "angry": {
           "exaggeration": 1.2,
+          "cfg": 0.9
+        },
+        "excited": {
+          "exaggeration": 1.1,
           "cfg": 0.7
         },
         "surprised": {
-          "exaggeration": 1.2,
+          "exaggeration": 1.1,
           "cfg": 0.7
         },
         "nervous": {
           "exaggeration": 0.4,
-          "cfg": 0.3
+          "cfg": 0.7
         },
         "aroused": {
-          "exaggeration": 0.2,
-          "cfg": 0.4
-        },
-        "scared": {
-          "exaggeration": 0.8,
-          "cfg": 0.9
-        },
-        "curious": {
           "exaggeration": 0.7,
           "cfg": 0.4
         },
+        "scared": {
+          "exaggeration": 0.7,
+          "cfg": 0.5
+        },
+        "curious": {
+          "exaggeration": 1,
+          "cfg": 0.5
+        },
         "playful": {
-          "exaggeration": 1.0,
-          "cfg": 0.4
+          "exaggeration": 1,
+          "cfg": 0.7
         },
         "serious": {
-          "exaggeration": 1.1,
-          "cfg": 0.5
+          "exaggeration": 0.7,
+          "cfg": 0.7
         },
         "calm": {
           "exaggeration": 0.6,
-          "cfg": 0.4
+          "cfg": 0.7
         }
       }
     },
@@ -763,54 +763,54 @@ export const TTS_CFG = {
       "emotions": {
         "neutral": {
           "exaggeration": 0.5,
-          "cfg": 0.7
+          "cfg": 0.8
         },
         "happy": {
-          "exaggeration": 1.1,
+          "exaggeration": 0.9,
           "cfg": 0.65
         },
         "sad": {
           "exaggeration": 0.3,
-          "cfg": 0.3
+          "cfg": 0.7
         },
         "angry": {
-          "exaggeration": 1.3,
-          "cfg": 0.6
+          "exaggeration": 1.2,
+          "cfg": 0.9
         },
         "excited": {
-          "exaggeration": 1.2,
-          "cfg": 0.7
+          "exaggeration": 1.0,
+          "cfg": 0.8
         },
         "surprised": {
-          "exaggeration": 1.2,
-          "cfg": 0.7
+          "exaggeration": 1.0,
+          "cfg": 0.8
         },
         "nervous": {
           "exaggeration": 0.4,
-          "cfg": 0.3
+          "cfg": 0.6
         },
         "aroused": {
-          "exaggeration": 0.2,
+          "exaggeration": 0.4,
           "cfg": 0.4
         },
         "scared": {
-          "exaggeration": 0.8,
-          "cfg": 0.9
+          "exaggeration": 0.6,
+          "cfg": 0.5
         },
         "curious": {
-          "exaggeration": 0.7,
-          "cfg": 0.4
-        },
-        "playful": {
-          "exaggeration": 1.0,
-          "cfg": 0.4
-        },
-        "serious": {
           "exaggeration": 1.1,
           "cfg": 0.5
         },
+        "playful": {
+          "exaggeration": 1.3,
+          "cfg": 0.8
+        },
+        "serious": {
+          "exaggeration": 0.9,
+          "cfg": 1.1
+        },
         "calm": {
-          "exaggeration": 0.6,
+          "exaggeration": 0.4,
           "cfg": 0.4
         }
       }

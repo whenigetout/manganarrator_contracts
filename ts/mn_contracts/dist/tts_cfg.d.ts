@@ -83,7 +83,7 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.3;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.5;
+                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
                 readonly excited: {
@@ -115,8 +115,8 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.4;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.4;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
@@ -140,7 +140,7 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.3;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.5;
+                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
                 readonly excited: {
@@ -172,8 +172,8 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.4;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.4;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
@@ -197,7 +197,7 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.3;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.5;
+                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
                 readonly excited: {
@@ -229,8 +229,8 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.4;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.4;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
@@ -254,7 +254,7 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.3;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.5;
+                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
                 readonly excited: {
@@ -286,8 +286,8 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.4;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.4;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
@@ -311,7 +311,7 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.3;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.5;
+                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
                 readonly excited: {
@@ -343,8 +343,8 @@ export declare const TTS_CFG: {
                     readonly cfg: 0.4;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.4;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
@@ -473,54 +473,54 @@ export declare const TTS_CFG: {
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
-                    readonly cfg: 0.7;
+                    readonly cfg: 0.8;
                 };
                 readonly happy: {
-                    readonly exaggeration: 1.1;
+                    readonly exaggeration: 0.9;
                     readonly cfg: 0.65;
                 };
                 readonly sad: {
                     readonly exaggeration: 0.3;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.7;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.3;
-                    readonly cfg: 0.6;
+                    readonly exaggeration: 1.2;
+                    readonly cfg: 0.9;
                 };
                 readonly excited: {
-                    readonly exaggeration: 1.2;
-                    readonly cfg: 0.7;
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.8;
                 };
                 readonly surprised: {
-                    readonly exaggeration: 1.2;
-                    readonly cfg: 0.7;
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.8;
                 };
                 readonly nervous: {
                     readonly exaggeration: 0.4;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.6;
                 };
                 readonly aroused: {
-                    readonly exaggeration: 0.2;
+                    readonly exaggeration: 0.4;
                     readonly cfg: 0.4;
                 };
                 readonly scared: {
-                    readonly exaggeration: 0.8;
-                    readonly cfg: 0.9;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.5;
                 };
                 readonly curious: {
-                    readonly exaggeration: 0.7;
-                    readonly cfg: 0.4;
-                };
-                readonly playful: {
-                    readonly exaggeration: 1;
-                    readonly cfg: 0.4;
-                };
-                readonly serious: {
                     readonly exaggeration: 1.1;
                     readonly cfg: 0.5;
                 };
+                readonly playful: {
+                    readonly exaggeration: 1.3;
+                    readonly cfg: 0.8;
+                };
+                readonly serious: {
+                    readonly exaggeration: 0.9;
+                    readonly cfg: 1.1;
+                };
                 readonly calm: {
-                    readonly exaggeration: 0.6;
+                    readonly exaggeration: 0.4;
                     readonly cfg: 0.4;
                 };
             };
@@ -530,55 +530,55 @@ export declare const TTS_CFG: {
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
-                    readonly cfg: 0.7;
+                    readonly cfg: 0.8;
                 };
                 readonly happy: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.65;
+                    readonly exaggeration: 1.15;
+                    readonly cfg: 0.8;
                 };
                 readonly sad: {
                     readonly exaggeration: 0.3;
-                    readonly cfg: 0.3;
-                };
-                readonly angry: {
-                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
-                readonly excited: {
+                readonly angry: {
                     readonly exaggeration: 1.2;
+                    readonly cfg: 0.9;
+                };
+                readonly excited: {
+                    readonly exaggeration: 1.1;
                     readonly cfg: 0.7;
                 };
                 readonly surprised: {
-                    readonly exaggeration: 1.2;
+                    readonly exaggeration: 1.1;
                     readonly cfg: 0.7;
                 };
                 readonly nervous: {
                     readonly exaggeration: 0.4;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.7;
                 };
                 readonly aroused: {
-                    readonly exaggeration: 0.2;
-                    readonly cfg: 0.4;
-                };
-                readonly scared: {
-                    readonly exaggeration: 0.8;
-                    readonly cfg: 0.9;
-                };
-                readonly curious: {
                     readonly exaggeration: 0.7;
                     readonly cfg: 0.4;
                 };
+                readonly scared: {
+                    readonly exaggeration: 0.7;
+                    readonly cfg: 0.5;
+                };
+                readonly curious: {
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.5;
+                };
                 readonly playful: {
                     readonly exaggeration: 1;
-                    readonly cfg: 0.4;
+                    readonly cfg: 0.7;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.7;
+                    readonly cfg: 0.7;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
-                    readonly cfg: 0.4;
+                    readonly cfg: 0.7;
                 };
             };
         };
@@ -587,55 +587,55 @@ export declare const TTS_CFG: {
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
-                    readonly cfg: 0.7;
+                    readonly cfg: 0.8;
                 };
                 readonly happy: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.65;
+                    readonly exaggeration: 1.15;
+                    readonly cfg: 0.8;
                 };
                 readonly sad: {
                     readonly exaggeration: 0.3;
-                    readonly cfg: 0.3;
-                };
-                readonly angry: {
-                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
-                readonly excited: {
+                readonly angry: {
                     readonly exaggeration: 1.2;
+                    readonly cfg: 0.9;
+                };
+                readonly excited: {
+                    readonly exaggeration: 1.1;
                     readonly cfg: 0.7;
                 };
                 readonly surprised: {
-                    readonly exaggeration: 1.2;
+                    readonly exaggeration: 1.1;
                     readonly cfg: 0.7;
                 };
                 readonly nervous: {
                     readonly exaggeration: 0.4;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.7;
                 };
                 readonly aroused: {
-                    readonly exaggeration: 0.2;
-                    readonly cfg: 0.4;
-                };
-                readonly scared: {
-                    readonly exaggeration: 0.8;
-                    readonly cfg: 0.9;
-                };
-                readonly curious: {
                     readonly exaggeration: 0.7;
                     readonly cfg: 0.4;
                 };
+                readonly scared: {
+                    readonly exaggeration: 0.7;
+                    readonly cfg: 0.5;
+                };
+                readonly curious: {
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.5;
+                };
                 readonly playful: {
                     readonly exaggeration: 1;
-                    readonly cfg: 0.4;
+                    readonly cfg: 0.7;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.7;
+                    readonly cfg: 0.7;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
-                    readonly cfg: 0.4;
+                    readonly cfg: 0.7;
                 };
             };
         };
@@ -644,54 +644,54 @@ export declare const TTS_CFG: {
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
-                    readonly cfg: 0.7;
+                    readonly cfg: 0.8;
                 };
                 readonly happy: {
-                    readonly exaggeration: 1.1;
+                    readonly exaggeration: 0.9;
                     readonly cfg: 0.65;
                 };
                 readonly sad: {
                     readonly exaggeration: 0.3;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.7;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.3;
-                    readonly cfg: 0.6;
+                    readonly exaggeration: 1.2;
+                    readonly cfg: 0.9;
                 };
                 readonly excited: {
-                    readonly exaggeration: 1.2;
-                    readonly cfg: 0.7;
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.8;
                 };
                 readonly surprised: {
-                    readonly exaggeration: 1.2;
-                    readonly cfg: 0.7;
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.8;
                 };
                 readonly nervous: {
                     readonly exaggeration: 0.4;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.6;
                 };
                 readonly aroused: {
-                    readonly exaggeration: 0.2;
+                    readonly exaggeration: 0.4;
                     readonly cfg: 0.4;
                 };
                 readonly scared: {
-                    readonly exaggeration: 0.8;
-                    readonly cfg: 0.9;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.5;
                 };
                 readonly curious: {
-                    readonly exaggeration: 0.7;
-                    readonly cfg: 0.4;
-                };
-                readonly playful: {
-                    readonly exaggeration: 1;
-                    readonly cfg: 0.4;
-                };
-                readonly serious: {
                     readonly exaggeration: 1.1;
                     readonly cfg: 0.5;
                 };
+                readonly playful: {
+                    readonly exaggeration: 1.3;
+                    readonly cfg: 0.8;
+                };
+                readonly serious: {
+                    readonly exaggeration: 0.9;
+                    readonly cfg: 1.1;
+                };
                 readonly calm: {
-                    readonly exaggeration: 0.6;
+                    readonly exaggeration: 0.4;
                     readonly cfg: 0.4;
                 };
             };
@@ -701,55 +701,55 @@ export declare const TTS_CFG: {
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
-                    readonly cfg: 0.7;
+                    readonly cfg: 0.8;
                 };
                 readonly happy: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.65;
+                    readonly exaggeration: 1.15;
+                    readonly cfg: 0.8;
                 };
                 readonly sad: {
                     readonly exaggeration: 0.3;
-                    readonly cfg: 0.3;
-                };
-                readonly angry: {
-                    readonly exaggeration: 1.3;
                     readonly cfg: 0.6;
                 };
-                readonly excited: {
+                readonly angry: {
                     readonly exaggeration: 1.2;
+                    readonly cfg: 0.9;
+                };
+                readonly excited: {
+                    readonly exaggeration: 1.1;
                     readonly cfg: 0.7;
                 };
                 readonly surprised: {
-                    readonly exaggeration: 1.2;
+                    readonly exaggeration: 1.1;
                     readonly cfg: 0.7;
                 };
                 readonly nervous: {
                     readonly exaggeration: 0.4;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.7;
                 };
                 readonly aroused: {
-                    readonly exaggeration: 0.2;
-                    readonly cfg: 0.4;
-                };
-                readonly scared: {
-                    readonly exaggeration: 0.8;
-                    readonly cfg: 0.9;
-                };
-                readonly curious: {
                     readonly exaggeration: 0.7;
                     readonly cfg: 0.4;
                 };
+                readonly scared: {
+                    readonly exaggeration: 0.7;
+                    readonly cfg: 0.5;
+                };
+                readonly curious: {
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.5;
+                };
                 readonly playful: {
                     readonly exaggeration: 1;
-                    readonly cfg: 0.4;
+                    readonly cfg: 0.7;
                 };
                 readonly serious: {
-                    readonly exaggeration: 1.1;
-                    readonly cfg: 0.5;
+                    readonly exaggeration: 0.7;
+                    readonly cfg: 0.7;
                 };
                 readonly calm: {
                     readonly exaggeration: 0.6;
-                    readonly cfg: 0.4;
+                    readonly cfg: 0.7;
                 };
             };
         };
@@ -758,54 +758,54 @@ export declare const TTS_CFG: {
             readonly emotions: {
                 readonly neutral: {
                     readonly exaggeration: 0.5;
-                    readonly cfg: 0.7;
+                    readonly cfg: 0.8;
                 };
                 readonly happy: {
-                    readonly exaggeration: 1.1;
+                    readonly exaggeration: 0.9;
                     readonly cfg: 0.65;
                 };
                 readonly sad: {
                     readonly exaggeration: 0.3;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.7;
                 };
                 readonly angry: {
-                    readonly exaggeration: 1.3;
-                    readonly cfg: 0.6;
+                    readonly exaggeration: 1.2;
+                    readonly cfg: 0.9;
                 };
                 readonly excited: {
-                    readonly exaggeration: 1.2;
-                    readonly cfg: 0.7;
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.8;
                 };
                 readonly surprised: {
-                    readonly exaggeration: 1.2;
-                    readonly cfg: 0.7;
+                    readonly exaggeration: 1;
+                    readonly cfg: 0.8;
                 };
                 readonly nervous: {
                     readonly exaggeration: 0.4;
-                    readonly cfg: 0.3;
+                    readonly cfg: 0.6;
                 };
                 readonly aroused: {
-                    readonly exaggeration: 0.2;
+                    readonly exaggeration: 0.4;
                     readonly cfg: 0.4;
                 };
                 readonly scared: {
-                    readonly exaggeration: 0.8;
-                    readonly cfg: 0.9;
+                    readonly exaggeration: 0.6;
+                    readonly cfg: 0.5;
                 };
                 readonly curious: {
-                    readonly exaggeration: 0.7;
-                    readonly cfg: 0.4;
-                };
-                readonly playful: {
-                    readonly exaggeration: 1;
-                    readonly cfg: 0.4;
-                };
-                readonly serious: {
                     readonly exaggeration: 1.1;
                     readonly cfg: 0.5;
                 };
+                readonly playful: {
+                    readonly exaggeration: 1.3;
+                    readonly cfg: 0.8;
+                };
+                readonly serious: {
+                    readonly exaggeration: 0.9;
+                    readonly cfg: 1.1;
+                };
                 readonly calm: {
-                    readonly exaggeration: 0.6;
+                    readonly exaggeration: 0.4;
                     readonly cfg: 0.4;
                 };
             };
