@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from pathlib import Path
-from typing import Union
+from typing import Union, Optional
 import json
 import mn_contracts.ocr as o
 import traceback
@@ -47,9 +47,18 @@ def is_path_inside(path: Path, base: Path) -> bool:
     except ValueError:
         return False
 
-def build_media_Ref(namespace: o.MediaNamespace, path: str | Path) -> o.MediaRef:
+def build_media_Ref(
+        namespace: o.MediaNamespace,
+        path: str | Path,
+        media_root: Optional[str | Path] = None
+        ) -> o.MediaRef:
     try:
         path = Path(path)
+
+        # calculate relative path if media_root is passed, else use the given path
+        if media_root:
+            path = path.relative_to(Path(media_root) / namespace.value)
+        
         media_ref = o.MediaRef(
             namespace=namespace,
             path=str(path.as_posix()),
