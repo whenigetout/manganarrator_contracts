@@ -70,7 +70,7 @@ class OriginalImageBBox(BaseModel):
 
 class DialogueLine(BaseModel):
     id: int
-    image_id: str
+    image_id: int
     speaker: str
     gender: str
     emotion: str

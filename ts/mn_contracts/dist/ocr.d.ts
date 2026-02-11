@@ -19,7 +19,7 @@ export interface OriginalImageBBox {
 }
 export interface DialogueLine {
     id: number;
-    image_id: string;
+    image_id: number;
     speaker: string;
     gender: string;
     emotion: string;
