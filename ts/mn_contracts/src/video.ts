@@ -28,6 +28,7 @@ export interface RenderConfig {
 
     acodec: string;
     audio_bitrate: string;
+    audio_default_sample_rate: number;
     default_silent_clip_duration: number;
 
     verbose: boolean;
@@ -56,6 +57,7 @@ export const DEFAULT_RENDER_CONFIG: RenderConfig = {
 
     acodec: "aac",
     audio_bitrate: "192k",
+    audio_default_sample_rate: 44100,
     default_silent_clip_duration: 3,
 
     verbose: true,
@@ -79,7 +81,7 @@ export interface Size {
 
 export interface VideoDialogueLine {
     id: number;
-    image_id: string;
+    image_id: number;
     text: string;
     speaker: string;
     emotion: string;
@@ -120,6 +122,8 @@ export interface SegmentRenderSpan {
 
 export interface Segment {
     segment_id: number;
+    image_id: number;
+    run_id: number;
     base_y1: number;
     base_y2: number;
     image_info: ImageInfo;
@@ -144,17 +148,23 @@ export interface SegmentPreview {
     rendered_segment: RenderedSegment;
     duration: number;
     video_dialogue_lines: VideoDialogueLine[];
+    out_dir_ref: MediaRef;
+    out_file_ref: MediaRef;
 }
 
 export interface ImagePreview {
     run_id: string;
     image_id: number;
     base_timeline: SegmentPreview[];
+    out_dir_ref: MediaRef;
+    out_file_ref: MediaRef;
 }
 
 export interface VideoPreview {
     run_id: string;
     image_previews: ImagePreview[];
+    out_dir_ref: MediaRef;
+    out_file_ref: MediaRef;
 }
 
 /* ============================

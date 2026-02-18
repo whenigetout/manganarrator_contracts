@@ -16,6 +16,7 @@ export const DEFAULT_RENDER_CONFIG = {
     pix_fmt: "yuv420p",
     acodec: "aac",
     audio_bitrate: "192k",
+    audio_default_sample_rate: 44100,
     default_silent_clip_duration: 3,
     verbose: true,
     capture_stdout: false,

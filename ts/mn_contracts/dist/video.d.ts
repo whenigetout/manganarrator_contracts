@@ -13,6 +13,7 @@ export interface RenderConfig {
     pix_fmt: string;
     acodec: string;
     audio_bitrate: string;
+    audio_default_sample_rate: number;
     default_silent_clip_duration: number;
     verbose: boolean;
     capture_stdout: boolean;
@@ -29,7 +30,7 @@ export interface Size {
 }
 export interface VideoDialogueLine {
     id: number;
-    image_id: string;
+    image_id: number;
     text: string;
     speaker: string;
     emotion: string;
@@ -59,6 +60,8 @@ export interface SegmentRenderSpan {
 }
 export interface Segment {
     segment_id: number;
+    image_id: number;
+    run_id: number;
     base_y1: number;
     base_y2: number;
     image_info: ImageInfo;
@@ -73,15 +76,21 @@ export interface SegmentPreview {
     rendered_segment: RenderedSegment;
     duration: number;
     video_dialogue_lines: VideoDialogueLine[];
+    out_dir_ref: MediaRef;
+    out_file_ref: MediaRef;
 }
 export interface ImagePreview {
     run_id: string;
     image_id: number;
     base_timeline: SegmentPreview[];
+    out_dir_ref: MediaRef;
+    out_file_ref: MediaRef;
 }
 export interface VideoPreview {
     run_id: string;
     image_previews: ImagePreview[];
+    out_dir_ref: MediaRef;
+    out_file_ref: MediaRef;
 }
 export interface BuildVideoInput {
     ocr_run: OCRRun;

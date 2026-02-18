@@ -20,6 +20,7 @@ class RenderConfig(BaseModel):
 
     acodec: str = "aac"
     audio_bitrate: str = "192k"
+    audio_default_sample_rate: int = 44100
     default_silent_clip_duration: float = 3
 
     verbose: bool = True
@@ -34,7 +35,7 @@ class Size(BaseModel):
 # These are for building video from an ocrrun
 class VideoDialogueLine(BaseModel):
     id: int
-    image_id: str
+    image_id: int
     text: str
     speaker: str
     emotion: str
@@ -63,6 +64,8 @@ class SegmentRenderSpan(BaseModel):
 
 class Segment(BaseModel):
     segment_id: int
+    image_id: int
+    run_id: str
     base_y1: int
     base_y2: int
     image_info: o.ImageInfo
@@ -77,15 +80,22 @@ class SegmentPreview(BaseModel):
     rendered_segment: RenderedSegment
     duration: float
     video_dialogue_lines: List[VideoDialogueLine] = Field(default_factory=list)
+    out_dir_ref: o.MediaRef
+    out_file_ref: o.MediaRef
 
 class ImagePreview(BaseModel):
     run_id: str
     image_id: int
     base_timeline: List[SegmentPreview]
+    out_dir_ref: o.MediaRef
+    out_file_ref: o.MediaRef
 
 class VideoPreview(BaseModel):
     run_id: str
     image_previews: List[ImagePreview]
+    render_config: RenderConfig
+    out_dir_ref: o.MediaRef
+    out_file_ref: o.MediaRef
 
 class BuildVideoInput(BaseModel):
     ocr_run: o.OCRRun
