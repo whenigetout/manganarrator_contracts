@@ -61,7 +61,7 @@ export interface SegmentRenderSpan {
 export interface Segment {
     segment_id: number;
     image_id: number;
-    run_id: number;
+    run_id: string;
     base_y1: number;
     base_y2: number;
     image_info: ImageInfo;
@@ -95,4 +95,23 @@ export interface VideoPreview {
 export interface BuildVideoInput {
     ocr_run: OCRRun;
     render_config: RenderConfig;
+}
+export type JobStatus = "processing" | "done" | "failed" | "not_found";
+export type JobType = "build_ocrrun" | "build_image" | "build_segment" | "build_from_preview";
+export interface JobResult {
+    type: JobType;
+    data: MediaRef | Record<string, any>;
+}
+export interface JobResponse<T = MediaRef> {
+    job_id: string;
+    status: JobStatus;
+    result?: {
+        type: JobType;
+        data: T;
+    };
+    error?: string;
+}
+export interface JobCreateResponse {
+    status: JobStatus;
+    job_id: string;
 }
