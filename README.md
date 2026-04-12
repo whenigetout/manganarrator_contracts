@@ -4,5 +4,5 @@ To update after changes:
 -run `npx tsc` inside ts/mn_contracts
 -commit and push to git
 -reinstall pkg in the consumer app 
-    -for frontend: "npm run refresh:contracts:
+    -for frontend: "npm run refresh:contracts"
     -for python: "pip install git+https://github.com/whenigetout/manganarrator_contracts.git#subdirectory=python"
