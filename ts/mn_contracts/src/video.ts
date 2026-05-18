@@ -89,6 +89,20 @@ export interface VideoDialogueLine {
     audio_ref: MediaRef;
 }
 
+export interface AudioLayer {
+    id: string;
+    label: string;
+    media_ref: MediaRef;
+    start_at: number;
+    volume: number;
+    loop: boolean;
+    enabled: boolean;
+    trim_start_sec: number;
+    trim_end_sec: number | null;
+    fade_in_sec: number;
+    fade_out_sec: number;
+}
+
 /* ============================
     Render span (ffmpeg-safe)
    ============================ */
@@ -148,6 +162,8 @@ export interface SegmentPreview {
     rendered_segment: RenderedSegment;
     duration: number;
     video_dialogue_lines: VideoDialogueLine[];
+    include_in_output: boolean;
+    audio_layers: AudioLayer[];
     out_dir_ref: MediaRef;
     out_file_ref: MediaRef;
 }
@@ -156,6 +172,8 @@ export interface ImagePreview {
     run_id: string;
     image_id: number;
     base_timeline: SegmentPreview[];
+    include_in_output: boolean;
+    audio_layers: AudioLayer[];
     out_dir_ref: MediaRef;
     out_file_ref: MediaRef;
 }
@@ -163,6 +181,8 @@ export interface ImagePreview {
 export interface VideoPreview {
     run_id: string;
     image_previews: ImagePreview[];
+    render_config: RenderConfig;
+    audio_layers: AudioLayer[];
     out_dir_ref: MediaRef;
     out_file_ref: MediaRef;
 }
