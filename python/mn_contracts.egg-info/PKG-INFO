@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: mn-contracts
+Version: 0.1.17
+Summary: Shared contracts for MangaNarrator services
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+Shared Python contracts for MangaNarrator services.

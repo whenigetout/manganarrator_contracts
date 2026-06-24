@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+mn_contracts/__init__.py
+mn_contracts/common.py
+mn_contracts/ocr.py
+mn_contracts/pcc_backend.py
+mn_contracts/tts.py
+mn_contracts/tts_cfg.py
+mn_contracts/video.py
+mn_contracts.egg-info/PKG-INFO
+mn_contracts.egg-info/SOURCES.txt
+mn_contracts.egg-info/dependency_links.txt
+mn_contracts.egg-info/top_level.txt

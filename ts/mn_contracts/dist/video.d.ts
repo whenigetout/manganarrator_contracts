@@ -90,6 +90,10 @@ export interface SegmentPreview {
     duration: number;
     video_dialogue_lines: VideoDialogueLine[];
     include_in_output: boolean;
+    /** Per-segment silent duration override. When null/undefined, the global
+     *  RenderConfig.default_silent_clip_duration is used. Only meaningful
+     *  when video_dialogue_lines is empty. */
+    silent_duration_override?: number | null;
     audio_layers: AudioLayer[];
     out_dir_ref: MediaRef;
     out_file_ref: MediaRef;

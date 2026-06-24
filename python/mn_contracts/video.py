@@ -95,6 +95,10 @@ class SegmentPreview(BaseModel):
     duration: float
     video_dialogue_lines: List[VideoDialogueLine] = Field(default_factory=list)
     include_in_output: bool = True
+    # Override the global default_silent_clip_duration for this specific silent segment.
+    # When None, the global RenderConfig.default_silent_clip_duration is used.
+    # Only meaningful when video_dialogue_lines is empty.
+    silent_duration_override: Optional[float] = None
     audio_layers: List[AudioLayer] = Field(default_factory=list)
     out_dir_ref: o.MediaRef
     out_file_ref: o.MediaRef
